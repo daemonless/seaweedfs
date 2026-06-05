@@ -1,0 +1,52 @@
+name: seaweedfs
+
+x-daemonless:
+  title: "SeaweedFS"
+  icon: ":material-database:"  # https://pictogrammers.com/library/mdi/
+  category: "Network"
+  description: "SeaweedFS is a fast distributed storage system for blobs, objects, files, and a data lake, scaling to billions of files. It provides an S3 API, POSIX FUSE mount, WebDAV, and a Filer with cross-cluster active-active replication."
+  upstream_url: "https://github.com/seaweedfs/seaweedfs"
+  web_url: "https://seaweedfs.com/"
+  freshports_url: "https://www.freshports.org/net/seaweedfs/"
+  user: "bsd"
+  mlock: false
+  community: "Discord:https://discord.gg/Kb9tkhecZT"
+  appjail: true
+
+  docs:
+    env:
+      PUID: "User ID for the application process"
+      PGID: "Group ID for the application process"
+      TZ: "Timezone for the container"
+      SEAWEEDFS_MODE: "SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3"
+      SEAWEEDFS_VOLUME_SIZE_LIMIT_MB: "Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB)"
+      WEED_ARGS: "Extra arguments appended to the weed command (optional)"
+      S3_BUCKET: "Comma-separated S3 buckets to pre-create on startup (read natively by weed)"
+    volumes:
+      /config: "TOML config files (filer.toml, security.toml) + s3.json identities"
+      /data: "Object / volume storage data"
+    ports:
+      8333: "S3 API"
+      9333: "Master UI / API"
+      8888: "Filer UI / API"
+
+services:
+  seaweedfs:
+    image: ghcr.io/daemonless/seaweedfs:latest
+    container_name: seaweedfs
+    restart: unless-stopped
+
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - SEAWEEDFS_MODE=server
+
+    volumes:
+      - /path/to/containers/seaweedfs/config:/config
+      - /path/to/containers/seaweedfs/data:/data
+
+    ports:
+      - 8333:8333
+      - 9333:9333
+      - 8888:8888

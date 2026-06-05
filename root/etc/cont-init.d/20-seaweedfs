@@ -1,0 +1,12 @@
+#!/bin/sh
+# Ensure /data (bulk storage) is owned by the runtime user. Only chown when the
+# ownership actually differs, to avoid an expensive recursive chown on every
+# boot once the store holds many files (mirrors upstream's entrypoint).
+
+mkdir -p /data
+want="$(id -u bsd):$(id -g bsd)"
+have="$(stat -f '%u:%g' /data 2>/dev/null)"
+if [ "$have" != "$want" ]; then
+    echo "[seaweedfs] fixing /data ownership -> ${want}"
+    chown -R bsd:bsd /data
+fi

@@ -1,0 +1,40 @@
+ARG BASE_VERSION=15
+FROM ghcr.io/daemonless/base:${BASE_VERSION}
+
+ARG FREEBSD_ARCH=amd64
+ARG PKG_NAME="seaweedfs"
+ARG PACKAGES="${PKG_NAME}"
+ARG HEALTHCHECK_ENDPOINT="http://localhost:9333/cluster/healthz"
+
+ENV HEALTHCHECK_URL="${HEALTHCHECK_ENDPOINT}"
+
+LABEL org.opencontainers.image.title="{{ title }}" \
+      org.opencontainers.image.description="{{ description }}" \
+      org.opencontainers.image.source="{{ repo_url }}" \
+      org.opencontainers.image.url="{{ web_url }}" \
+      org.opencontainers.image.licenses="Apache-2.0" \
+      org.opencontainers.image.vendor="daemonless" \
+      org.opencontainers.image.authors="daemonless" \
+      io.daemonless.category="{{ category }}" \
+      io.daemonless.port="8333" \
+      io.daemonless.arch="${FREEBSD_ARCH}" \
+      io.daemonless.pkg-source="pkg" \
+      io.daemonless.packages="${PACKAGES}" \
+      io.daemonless.pkg-name="${PKG_NAME}" \
+      io.daemonless.healthcheck-url="${HEALTHCHECK_ENDPOINT}"
+
+# Install seaweedfs from FreeBSD pkg (provides /usr/local/bin/weed)
+RUN pkg update && \
+    pkg install -y ${PACKAGES} && \
+    mkdir -p /app && \
+    pkg query '%v' ${PKG_NAME} > /app/version && \
+    pkg clean -ay && \
+    rm -rf /var/cache/pkg/* /var/db/pkg/repos/*
+
+# Copy root filesystem
+COPY root/ /
+
+RUN chmod +x /etc/services.d/seaweedfs/run /etc/cont-init.d/20-seaweedfs /healthz
+
+EXPOSE 8333 9333 8888 8080
+VOLUME ["/config", "/data"]

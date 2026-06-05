@@ -1,0 +1,36 @@
+#!/bin/sh
+# SeaweedFS s6 service.
+# Role via SEAWEEDFS_MODE (default: server). Mirrors upstream role defaults.
+# TOML config + s3.json live in /config (-config_dir); bulk data in /data (-dir).
+
+MODE="${SEAWEEDFS_MODE:-server}"
+
+# S3 identities config, only if the user supplied one (else S3 is anonymous allow-all).
+S3CONF=""
+[ -f /config/s3.json ] && S3CONF="-s3.config=/config/s3.json"
+
+# Optional per-volume file size cap (MB). Unset = SeaweedFS default (30GB).
+# Ignored for mini, which auto-tunes via /data/mini.options.
+VSIZE="${SEAWEEDFS_VOLUME_SIZE_LIMIT_MB:-}"
+
+case "$MODE" in
+  master) set -- /usr/local/bin/weed -config_dir=/config master -mdir=/data ${VSIZE:+-volumeSizeLimitMB=$VSIZE} ;;
+  volume) set -- /usr/local/bin/weed -config_dir=/config volume -dir=/data -max=0 ;;
+  server) set -- /usr/local/bin/weed -config_dir=/config server -dir=/data -s3 -volume.max=0 ${VSIZE:+-master.volumeSizeLimitMB=$VSIZE} ${S3CONF} ;;
+  mini)   set -- /usr/local/bin/weed -config_dir=/config mini -dir=/data ${S3CONF} ;;
+  filer)  set -- /usr/local/bin/weed -config_dir=/config filer ;;
+  s3)     set -- /usr/local/bin/weed -config_dir=/config s3 ${S3CONF} ;;
+  *)      echo "[seaweedfs] ERROR: unknown SEAWEEDFS_MODE='$MODE' (server|mini|master|volume|filer|s3)" >&2; exit 1 ;;
+esac
+
+# Readiness check appropriate to the role.
+case "$MODE" in
+  master|server|mini) READY="fetch -qo- http://127.0.0.1:9333/cluster/healthz" ;;
+  volume)             READY="nc -z 127.0.0.1 8080" ;;
+  filer)              READY="nc -z 127.0.0.1 8888" ;;
+  s3)                 READY="nc -z 127.0.0.1 8333" ;;
+esac
+s6-ready-when "${READY}"
+
+echo "[seaweedfs] mode=${MODE}: $* ${WEED_ARGS}"
+exec s6-setuidgid bsd "$@" ${WEED_ARGS}
