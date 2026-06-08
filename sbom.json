@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-05T07:34:01Z",
+  "generated": "2026-06-08T13:33:55Z",
   "image": "seaweedfs",
   "tags": {
     "latest": {
-      "app_version": "4.31",
+      "app_version": "4.32",
       "arch": "amd64",
-      "generated": "2026-06-05T07:31:07Z",
+      "generated": "2026-06-08T13:30:06Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -333,7 +333,7 @@
           },
           {
             "name": "github.com/cncf/xds/go",
-            "version": "v0.0.0-20251210132809-ee656c7534f5"
+            "version": "v0.0.0-20260202195803-dba9d589def2"
           },
           {
             "name": "github.com/cockroachdb/apd/v3",
@@ -381,11 +381,11 @@
           },
           {
             "name": "github.com/envoyproxy/go-control-plane/envoy",
-            "version": "v1.36.0"
+            "version": "v1.37.0"
           },
           {
             "name": "github.com/envoyproxy/protoc-gen-validate",
-            "version": "v1.3.0"
+            "version": "v1.3.3"
           },
           {
             "name": "github.com/facebookgo/clock",
@@ -757,7 +757,7 @@
           },
           {
             "name": "github.com/pierrec/lz4/v4",
-            "version": "v4.1.26"
+            "version": "v4.1.27"
           },
           {
             "name": "github.com/pkg/errors",
@@ -841,7 +841,7 @@
           },
           {
             "name": "github.com/seaweedfs/seaweedfs",
-            "version": "v0.0.0-20260602063204-2a46d457ac3a"
+            "version": "v0.0.0-20260608063757-78da9572aee7"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -993,7 +993,7 @@
           },
           {
             "name": "go.etcd.io/etcd/client/pkg/v3",
-            "version": "v3.6.11"
+            "version": "v3.6.12"
           },
           {
             "name": "go.etcd.io/etcd/client/v3",
@@ -1013,7 +1013,7 @@
           },
           {
             "name": "go.opentelemetry.io/contrib/detectors/gcp",
-            "version": "v1.39.0"
+            "version": "v1.42.0"
           },
           {
             "name": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc",
@@ -1125,7 +1125,7 @@
           },
           {
             "name": "google.golang.org/grpc",
-            "version": "v1.80.0"
+            "version": "v1.81.1"
           },
           {
             "name": "google.golang.org/grpc/security/advancedtls",
@@ -1149,7 +1149,7 @@
           },
           {
             "name": "stdlib",
-            "version": "v1.26.3"
+            "version": "v1.26.4"
           }
         ],
         "java": [],
@@ -1176,7 +1176,7 @@
     "pkg": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-05T07:32:49Z",
+      "generated": "2026-06-08T13:32:41Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3027,7 +3027,7 @@
     "pkg-latest": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-05T07:32:37Z",
+      "generated": "2026-06-08T13:32:35Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
