@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-08T13:33:55Z",
+  "generated": "2026-06-11T12:16:41Z",
   "image": "seaweedfs",
   "tags": {
     "latest": {
-      "app_version": "4.32",
+      "app_version": "4.33",
       "arch": "amd64",
-      "generated": "2026-06-08T13:30:06Z",
+      "generated": "2026-06-11T12:12:57Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -277,7 +277,7 @@
           },
           {
             "name": "github.com/apache/cassandra-gocql-driver/v2",
-            "version": "v2.1.0"
+            "version": "v2.1.1"
           },
           {
             "name": "github.com/apache/iceberg-go",
@@ -517,7 +517,7 @@
           },
           {
             "name": "github.com/grpc-ecosystem/grpc-gateway/v2",
-            "version": "v2.27.3"
+            "version": "v2.28.0"
           },
           {
             "name": "github.com/hamba/avro/v2",
@@ -809,7 +809,7 @@
           },
           {
             "name": "github.com/redis/go-redis/v9",
-            "version": "v9.19.0"
+            "version": "v9.20.0"
           },
           {
             "name": "github.com/rivo/uniseg",
@@ -841,7 +841,7 @@
           },
           {
             "name": "github.com/seaweedfs/seaweedfs",
-            "version": "v0.0.0-20260608063757-78da9572aee7"
+            "version": "v0.0.0-20260611075231-55010be19b67"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -1085,7 +1085,7 @@
           },
           {
             "name": "golang.org/x/sync",
-            "version": "v0.20.0"
+            "version": "v0.21.0"
           },
           {
             "name": "golang.org/x/sys",
@@ -1176,7 +1176,7 @@
     "pkg": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-08T13:32:41Z",
+      "generated": "2026-06-11T12:14:36Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3027,7 +3027,7 @@
     "pkg-latest": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-08T13:32:35Z",
+      "generated": "2026-06-11T12:15:27Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
