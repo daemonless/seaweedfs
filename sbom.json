@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-15T06:41:06Z",
+  "generated": "2026-06-22T13:02:30Z",
   "image": "seaweedfs",
   "tags": {
     "latest": {
-      "app_version": "4.34",
+      "app_version": "4.35",
       "arch": "amd64",
-      "generated": "2026-06-15T06:36:10Z",
+      "generated": "2026-06-22T12:57:29Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -213,7 +213,7 @@
           },
           {
             "name": "cloud.google.com/go/storage",
-            "version": "v1.62.1"
+            "version": "v1.62.3"
           },
           {
             "name": "filippo.io/edwards25519",
@@ -261,7 +261,7 @@
           },
           {
             "name": "github.com/a-h/templ",
-            "version": "v0.3.1001"
+            "version": "v0.3.1020"
           },
           {
             "name": "github.com/andybalholm/brotli",
@@ -841,7 +841,7 @@
           },
           {
             "name": "github.com/seaweedfs/seaweedfs",
-            "version": "v0.0.0-20260615054144-c6cf5a5bd7c8"
+            "version": "v0.0.0-20260622072450-eb939761665c"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -989,7 +989,7 @@
           },
           {
             "name": "go.etcd.io/etcd/api/v3",
-            "version": "v3.6.10"
+            "version": "v3.6.12"
           },
           {
             "name": "go.etcd.io/etcd/client/pkg/v3",
@@ -997,7 +997,7 @@
           },
           {
             "name": "go.etcd.io/etcd/client/v3",
-            "version": "v3.6.10"
+            "version": "v3.6.12"
           },
           {
             "name": "go.mongodb.org/mongo-driver",
@@ -1073,11 +1073,11 @@
           },
           {
             "name": "golang.org/x/image",
-            "version": "v0.39.0"
+            "version": "v0.41.0"
           },
           {
             "name": "golang.org/x/net",
-            "version": "v0.54.0"
+            "version": "v0.55.0"
           },
           {
             "name": "golang.org/x/oauth2",
@@ -1176,7 +1176,7 @@
     "pkg": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-15T06:38:17Z",
+      "generated": "2026-06-22T13:01:20Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3027,7 +3027,7 @@
     "pkg-latest": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-15T06:39:51Z",
+      "generated": "2026-06-22T13:00:27Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
