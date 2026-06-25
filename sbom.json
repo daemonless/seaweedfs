@@ -1,11 +1,11 @@
 {
-  "generated": "2026-06-22T13:02:30Z",
+  "generated": "2026-06-25T10:17:38Z",
   "image": "seaweedfs",
   "tags": {
     "latest": {
-      "app_version": "4.35",
+      "app_version": "4.36",
       "arch": "amd64",
-      "generated": "2026-06-22T12:57:29Z",
+      "generated": "2026-06-25T10:13:37Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -265,7 +265,7 @@
           },
           {
             "name": "github.com/andybalholm/brotli",
-            "version": "v1.2.0"
+            "version": "v1.2.1"
           },
           {
             "name": "github.com/antlr4-go/antlr/v4",
@@ -273,15 +273,15 @@
           },
           {
             "name": "github.com/apache/arrow-go/v18",
-            "version": "v18.5.2-0.20260220015023-a886a5722b87"
+            "version": "v18.6.0"
           },
           {
             "name": "github.com/apache/cassandra-gocql-driver/v2",
-            "version": "v2.1.1"
+            "version": "v2.1.2"
           },
           {
             "name": "github.com/apache/iceberg-go",
-            "version": "v0.5.0"
+            "version": "v0.6.0"
           },
           {
             "name": "github.com/apache/thrift",
@@ -453,7 +453,7 @@
           },
           {
             "name": "github.com/goccy/go-json",
-            "version": "v0.10.5"
+            "version": "v0.10.6"
           },
           {
             "name": "github.com/goccy/go-yaml",
@@ -501,7 +501,7 @@
           },
           {
             "name": "github.com/gookit/color",
-            "version": "v1.5.4"
+            "version": "v1.6.0"
           },
           {
             "name": "github.com/gorilla/mux",
@@ -518,10 +518,6 @@
           {
             "name": "github.com/grpc-ecosystem/grpc-gateway/v2",
             "version": "v2.28.0"
-          },
-          {
-            "name": "github.com/hamba/avro/v2",
-            "version": "v2.31.0"
           },
           {
             "name": "github.com/hashicorp/errwrap",
@@ -578,6 +574,10 @@
           {
             "name": "github.com/hashicorp/golang-lru",
             "version": "v0.6.0"
+          },
+          {
+            "name": "github.com/hashicorp/golang-lru/v2",
+            "version": "v2.0.7"
           },
           {
             "name": "github.com/hashicorp/hcl",
@@ -644,10 +644,6 @@
             "version": "v0.4.0"
           },
           {
-            "name": "github.com/json-iterator/go",
-            "version": "v1.1.12"
-          },
-          {
             "name": "github.com/karlseguin/ccache/v2",
             "version": "v2.0.8"
           },
@@ -661,7 +657,7 @@
           },
           {
             "name": "github.com/klauspost/reedsolomon",
-            "version": "v1.14.0"
+            "version": "v1.14.1"
           },
           {
             "name": "github.com/kr/fs",
@@ -706,14 +702,6 @@
           {
             "name": "github.com/mitchellh/mapstructure",
             "version": "v1.5.1-0.20220423185008-bf980b35cac4"
-          },
-          {
-            "name": "github.com/modern-go/concurrent",
-            "version": "v0.0.0-20180306012644-bacd9c7ef1dd"
-          },
-          {
-            "name": "github.com/modern-go/reflect2",
-            "version": "v1.0.2"
           },
           {
             "name": "github.com/montanaflynn/stats",
@@ -797,7 +785,7 @@
           },
           {
             "name": "github.com/pterm/pterm",
-            "version": "v0.12.82"
+            "version": "v0.12.83"
           },
           {
             "name": "github.com/rcrowley/go-metrics",
@@ -841,11 +829,11 @@
           },
           {
             "name": "github.com/seaweedfs/seaweedfs",
-            "version": "v0.0.0-20260622072450-eb939761665c"
+            "version": "v0.0.0-20260625050940-d0b90d29eb6c"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
-            "version": "v4.26.3"
+            "version": "v4.26.5"
           },
           {
             "name": "github.com/sirupsen/logrus",
@@ -881,7 +869,7 @@
           },
           {
             "name": "github.com/stretchr/objx",
-            "version": "v0.5.2"
+            "version": "v0.5.3"
           },
           {
             "name": "github.com/stretchr/testify",
@@ -893,15 +881,15 @@
           },
           {
             "name": "github.com/substrait-io/substrait",
-            "version": "v0.81.0"
+            "version": "v0.87.0"
           },
           {
-            "name": "github.com/substrait-io/substrait-go/v7",
-            "version": "v7.4.0"
+            "name": "github.com/substrait-io/substrait-go/v8",
+            "version": "v8.1.0"
           },
           {
             "name": "github.com/substrait-io/substrait-protobuf/go",
-            "version": "v0.81.0"
+            "version": "v0.85.0"
           },
           {
             "name": "github.com/syndtr/goleveldb",
@@ -930,6 +918,10 @@
           {
             "name": "github.com/tsuna/gohbase",
             "version": "v0.0.0-20201125011725-348991136365"
+          },
+          {
+            "name": "github.com/twmb/avro",
+            "version": "v1.7.2"
           },
           {
             "name": "github.com/twmb/murmur3",
@@ -1104,10 +1096,6 @@
             "version": "v0.15.0"
           },
           {
-            "name": "golang.org/x/xerrors",
-            "version": "v0.0.0-20240903120638-7835f813f4da"
-          },
-          {
             "name": "google.golang.org/api",
             "version": "v0.278.0"
           },
@@ -1163,20 +1151,20 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 36,
-        "go": 249,
+        "go": 246,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 285
+        "total": 282
       }
     },
     "pkg": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-22T13:01:20Z",
+      "generated": "2026-06-25T10:15:55Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3027,7 +3015,7 @@
     "pkg-latest": {
       "app_version": "4.12_4",
       "arch": "amd64",
-      "generated": "2026-06-22T13:00:27Z",
+      "generated": "2026-06-25T10:16:26Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
