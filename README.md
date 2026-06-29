@@ -18,7 +18,6 @@ SeaweedFS is a fast distributed storage system for blobs, objects, files, and a 
 | **Website** | [https://seaweedfs.com/](https://seaweedfs.com/) |
 
 ## Version Tags
-
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Alternative build. |
@@ -26,7 +25,6 @@ SeaweedFS is a fast distributed storage system for blobs, objects, files, and a 
 | `pkg-latest` | **FreeBSD Latest**. Rolling package updates. | Newest FreeBSD packages. |
 
 ## Prerequisites
-
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
 
 ## Deployment
@@ -36,38 +34,47 @@ Before deploying, ensure your host environment is ready. See the [Quick Start Gu
 ```yaml
 services:
   seaweedfs:
-    image: ghcr.io/daemonless/seaweedfs:latest
+    image: "ghcr.io/daemonless/seaweedfs:latest"
     container_name: seaweedfs
     environment:
       - PUID=1000  # User ID for the application process
       - PGID=1000  # Group ID for the application process
       - TZ=UTC  # Timezone for the container
       - SEAWEEDFS_MODE=server  # SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3
+      - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=  # Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB)
+      - WEED_ARGS=  # Extra arguments appended to the weed command (optional)
+      - S3_BUCKET=  # Comma-separated S3 buckets to pre-create on startup (read natively by weed)
     volumes:
       - "/path/to/containers/seaweedfs:/config"
       - "/path/to/containers/seaweedfs/data:/data"
     ports:
-      - 8333:8333
-      - 9333:9333
-      - 8888:8888
+      - "8333:8333"
+      - "9333:9333"
+      - "8888:8888"
     restart: unless-stopped
 ```
 
 ### AppJail Director
-
 **.env**:
 
 ```
+# .env
+
 DIRECTOR_PROJECT=seaweedfs
 PUID=1000
 PGID=1000
 TZ=UTC
 SEAWEEDFS_MODE=server
+SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=
+WEED_ARGS=
+S3_BUCKET=
 ```
 
 **appjail-director.yml**:
 
 ```yaml
+# appjail-director.yml
+
 options:
   - virtualnet: ':<random> default'
   - nat:
@@ -76,6 +83,9 @@ services:
     name: seaweedfs
     options:
       - container: 'boot args:--pull'
+      - expose: '8333:8333 proto:tcp' \
+      - expose: '9333:9333 proto:tcp' \
+      - expose: '8888:8888 proto:tcp' \
     oci:
       user: root
       environment:
@@ -83,6 +93,9 @@ services:
         - PGID: !ENV '${PGID}'
         - TZ: !ENV '${TZ}'
         - SEAWEEDFS_MODE: !ENV '${SEAWEEDFS_MODE}'
+        - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB: !ENV '${SEAWEEDFS_VOLUME_SIZE_LIMIT_MB}'
+        - WEED_ARGS: !ENV '${WEED_ARGS}'
+        - S3_BUCKET: !ENV '${S3_BUCKET}'
     volumes:
       - seaweedfs: /config
       - seaweedfs_data: /data
@@ -96,11 +109,14 @@ volumes:
 **Makejail**:
 
 ```
+# Makejail
+
 ARG tag=latest
 
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/seaweedfs:${tag}
 ```
+**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
 
@@ -113,10 +129,37 @@ podman run -d --name seaweedfs \
   -e PGID=1000 \
   -e TZ=UTC \
   -e SEAWEEDFS_MODE=server \
+  -e SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
+  -e WEED_ARGS= \
+  -e S3_BUCKET= \
   -v /path/to/containers/seaweedfs:/config \
   -v /path/to/containers/seaweedfs/data:/data \
   ghcr.io/daemonless/seaweedfs:latest
 ```
+
+### AppJail
+
+```bash
+appjail oci run -Pd \
+  -o overwrite=force \
+  -o container="args:--pull" \
+  -o virtualnet=":<random> default" \
+  -o nat \
+  -o expose="8333:8333 proto:tcp" \
+  -o expose="9333:9333 proto:tcp" \
+  -o expose="8888:8888 proto:tcp" \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=UTC \
+  -e SEAWEEDFS_MODE=server \
+  -e SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
+  -e WEED_ARGS= \
+  -e S3_BUCKET= \
+  -o fstab="/path/to/containers/seaweedfs /config <pseudofs>" \
+  -o fstab="/path/to/containers/seaweedfs/data /data <pseudofs>" \
+  ghcr.io/daemonless/seaweedfs:latest seaweedfs
+```
+**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Ansible
 
@@ -124,7 +167,7 @@ podman run -d --name seaweedfs \
 - name: Deploy seaweedfs
   containers.podman.podman_container:
     name: seaweedfs
-    image: ghcr.io/daemonless/seaweedfs:latest
+    image: "ghcr.io/daemonless/seaweedfs:latest"
     state: started
     restart_policy: always
     env:
@@ -132,6 +175,9 @@ podman run -d --name seaweedfs \
       PGID: "1000"
       TZ: "UTC"
       SEAWEEDFS_MODE: "server"
+      SEAWEEDFS_VOLUME_SIZE_LIMIT_MB: ""
+      WEED_ARGS: ""
+      S3_BUCKET: ""
     ports:
       - "8333:8333"
       - "9333:9333"
@@ -140,6 +186,8 @@ podman run -d --name seaweedfs \
       - "/path/to/containers/seaweedfs:/config"
       - "/path/to/containers/seaweedfs/data:/data"
 ```
+
+Access at: `http://localhost:8333`
 
 ## Parameters
 
@@ -151,6 +199,9 @@ podman run -d --name seaweedfs \
 | `PGID` | `1000` | Group ID for the application process |
 | `TZ` | `UTC` | Timezone for the container |
 | `SEAWEEDFS_MODE` | `server` | SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3 |
+| `SEAWEEDFS_VOLUME_SIZE_LIMIT_MB` | `` | Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB) |
+| `WEED_ARGS` | `` | Extra arguments appended to the weed command (optional) |
+| `S3_BUCKET` | `` | Comma-separated S3 buckets to pre-create on startup (read natively by weed) |
 
 ### Volumes
 
@@ -169,7 +220,7 @@ podman run -d --name seaweedfs \
 
 **Architectures:** amd64
 **User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
-**Base:** FreeBSD 15.0
+**Base:** FreeBSD 15.1
 
 ---
 
