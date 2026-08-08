@@ -83,9 +83,9 @@ services:
     name: seaweedfs
     options:
       - container: 'boot args:--pull'
-      - expose: '8333:8333 proto:tcp' \
-      - expose: '9333:9333 proto:tcp' \
-      - expose: '8888:8888 proto:tcp' \
+      - expose: '8333:8333 proto:tcp'
+      - expose: '9333:9333 proto:tcp'
+      - expose: '8888:8888 proto:tcp'
     oci:
       user: root
       environment:
@@ -218,7 +218,7 @@ Access at: `http://localhost:8333`
 | `9333` | TCP | Master UI / API |
 | `8888` | TCP | Filer UI / API |
 
-**Architectures:** amd64
+**Architectures:** amd64, aarch64
 **User:** `bsd` (UID/GID via PUID/PGID, defaults to 1000:1000)
 **Base:** FreeBSD 15.1
 
