@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-14T08:45:01Z",
+  "generated": "2026-08-17T09:28:46Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
-      "app_version": "4.41",
+      "app_version": "4.42",
       "arch": "amd64",
-      "generated": "2026-08-14T08:42:08Z",
+      "generated": "2026-08-17T09:26:18Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -332,7 +332,7 @@
           {
             "name": "cloud.google.com/go/kms",
             "purl": "",
-            "version": "v1.31.0"
+            "version": "v1.33.0"
           },
           {
             "name": "cloud.google.com/go/longrunning",
@@ -962,7 +962,7 @@
           {
             "name": "github.com/mattn/go-isatty",
             "purl": "",
-            "version": "v0.0.23"
+            "version": "v0.0.24"
           },
           {
             "name": "github.com/mattn/go-runewidth",
@@ -1037,7 +1037,7 @@
           {
             "name": "github.com/pierrec/lz4/v4",
             "purl": "",
-            "version": "v4.1.27"
+            "version": "v4.1.28"
           },
           {
             "name": "github.com/pkg/browser",
@@ -1152,7 +1152,7 @@
           {
             "name": "github.com/seaweedfs/seaweedfs",
             "purl": "",
-            "version": "v0.0.0-20260806073920-de34a1a87c02"
+            "version": "v0.0.0-20260817071532-f04da8e9ad8d"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -1532,7 +1532,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.5"
+            "version": "v1.26.6"
           }
         ],
         "java": [],
@@ -1557,9 +1557,9 @@
       }
     },
     "pkg-amd64": {
-      "app_version": "4.12_5",
+      "app_version": "4.12_6",
       "arch": "amd64",
-      "generated": "2026-08-14T08:44:28Z",
+      "generated": "2026-08-17T09:28:12Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1834,7 +1834,7 @@
               "APACHE20"
             ],
             "name": "seaweedfs",
-            "version": "4.12_5"
+            "version": "4.12_6"
           },
           {
             "licenses": [
@@ -3903,7 +3903,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.25.12"
+            "version": "v1.25.13"
           },
           {
             "name": "storj.io/common",
@@ -3960,7 +3960,7 @@
     "pkg-latest-amd64": {
       "app_version": "4.41",
       "arch": "amd64",
-      "generated": "2026-08-14T08:43:19Z",
+      "generated": "2026-08-17T09:26:40Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
