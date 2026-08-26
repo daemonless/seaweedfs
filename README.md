@@ -51,8 +51,11 @@ services:
       - "8333:8333"
       - "9333:9333"
       - "8888:8888"
-    restart: unless-stopped
+    # always (not unless-stopped) so FreeBSD's podman rc.d auto-starts it at boot
+    restart: always
 ```
+
+Save as `compose.yaml`, then run `podman-compose up -d`.
 
 ### AppJail Director
 **.env**:
@@ -116,6 +119,9 @@ ARG tag=latest
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/seaweedfs:${tag}
 ```
+
+Save the files above, then run `appjail-director up`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
 
 ### Podman CLI
@@ -136,6 +142,8 @@ podman run -d --name seaweedfs \
   -v /path/to/containers/seaweedfs/data:/data \
   ghcr.io/daemonless/seaweedfs:latest
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
@@ -159,7 +167,46 @@ appjail oci run -Pd \
   -o fstab="/path/to/containers/seaweedfs/data /data <pseudofs>" \
   ghcr.io/daemonless/seaweedfs:latest seaweedfs
 ```
+
+Save as `run.sh`, then run `sh run.sh`.
+
 **Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+### Bastille
+
+> [!WARNING]
+> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+
+```yaml
+services:
+  seaweedfs:
+    image: "ghcr.io/daemonless/seaweedfs:latest"
+    container_name: seaweedfs
+    network_mode: host  # jail shares host networking
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=UTC
+      - SEAWEEDFS_MODE=server
+      - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=
+      - WEED_ARGS=
+      - S3_BUCKET=
+```
+
+Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+
+```bash
+bastille create -O \
+  --env PUID=1000 \
+  --env PGID=1000 \
+  --env TZ=UTC \
+  --env SEAWEEDFS_MODE=server \
+  --env SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
+  --env WEED_ARGS= \
+  --env S3_BUCKET= \
+  --data-path /path/to/containers/seaweedfs \
+  seaweedfs ghcr.io/daemonless/seaweedfs:latest inherit
+```
 
 ### Ansible
 
@@ -186,6 +233,8 @@ appjail oci run -Pd \
       - "/path/to/containers/seaweedfs:/config"
       - "/path/to/containers/seaweedfs/data:/data"
 ```
+
+Save as `seaweedfs-deploy.yaml`, then run `ansible-playbook seaweedfs-deploy.yaml`.
 
 Access at: `http://localhost:8333`
 
