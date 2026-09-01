@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-28T08:20:39Z",
+  "generated": "2026-09-01T06:37:21Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
-      "app_version": "4.44",
+      "app_version": "4.45",
       "arch": "amd64",
-      "generated": "2026-08-28T08:17:45Z",
+      "generated": "2026-09-01T06:33:25Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -147,7 +147,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-openssl-lib",
-            "version": "15.1"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -175,7 +175,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p2"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -238,7 +238,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.126.1"
+            "version": "3.127"
           },
           {
             "licenses": [
@@ -312,7 +312,7 @@
           {
             "name": "cloud.google.com/go/auth",
             "purl": "",
-            "version": "v0.23.0"
+            "version": "v0.23.2"
           },
           {
             "name": "cloud.google.com/go/auth/oauth2adapt",
@@ -327,7 +327,7 @@
           {
             "name": "cloud.google.com/go/iam",
             "purl": "",
-            "version": "v1.11.0"
+            "version": "v1.12.0"
           },
           {
             "name": "cloud.google.com/go/kms",
@@ -342,12 +342,12 @@
           {
             "name": "cloud.google.com/go/monitoring",
             "purl": "",
-            "version": "v1.29.0"
+            "version": "v1.30.0"
           },
           {
             "name": "cloud.google.com/go/pubsub",
             "purl": "",
-            "version": "v1.51.0"
+            "version": "v1.51.1"
           },
           {
             "name": "cloud.google.com/go/pubsub/v2",
@@ -617,7 +617,7 @@
           {
             "name": "github.com/getsentry/sentry-go",
             "purl": "",
-            "version": "v0.44.1"
+            "version": "v0.48.0"
           },
           {
             "name": "github.com/go-asn1-ber/asn1-ber",
@@ -717,7 +717,7 @@
           {
             "name": "github.com/googleapis/gax-go/v2",
             "purl": "",
-            "version": "v2.23.0"
+            "version": "v2.24.0"
           },
           {
             "name": "github.com/gookit/color",
@@ -1115,6 +1115,11 @@
             "version": "v0.4.7"
           },
           {
+            "name": "github.com/rwcarlsen/goexif",
+            "purl": "",
+            "version": "v0.0.0-20190401172101-9e8deecbddbd"
+          },
+          {
             "name": "github.com/ryanuber/go-glob",
             "purl": "",
             "version": "v1.0.0"
@@ -1137,7 +1142,7 @@
           {
             "name": "github.com/seaweedfs/goexif",
             "purl": "",
-            "version": "v1.0.3"
+            "version": "v2.0.0+incompatible"
           },
           {
             "name": "github.com/seaweedfs/raft",
@@ -1147,12 +1152,12 @@
           {
             "name": "github.com/seaweedfs/seaweedfs",
             "purl": "",
-            "version": "v0.0.0-20260822074101-3563738699f2"
+            "version": "v0.0.0-20260831232101-79b87202136c"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
             "purl": "",
-            "version": "v4.26.6"
+            "version": "v4.26.7"
           },
           {
             "name": "github.com/sirupsen/logrus",
@@ -1477,27 +1482,27 @@
           {
             "name": "google.golang.org/api",
             "purl": "",
-            "version": "v0.293.0"
+            "version": "v0.294.0"
           },
           {
             "name": "google.golang.org/genproto",
             "purl": "",
-            "version": "v0.0.0-20260519071638-aa98bba5eb94"
+            "version": "v0.0.0-20260715232425-e75dac1f907d"
           },
           {
             "name": "google.golang.org/genproto/googleapis/api",
             "purl": "",
-            "version": "v0.0.0-20260706201446-f0a921348800"
+            "version": "v0.0.0-20260715232425-e75dac1f907d"
           },
           {
             "name": "google.golang.org/genproto/googleapis/rpc",
             "purl": "",
-            "version": "v0.0.0-20260807164820-c8921c73eeea"
+            "version": "v0.0.0-20260819154853-08b0e4226688"
           },
           {
             "name": "google.golang.org/grpc",
             "purl": "",
-            "version": "v1.84.0-dev.0.20260723093437-b6eac429d7b6"
+            "version": "v1.85.0-dev"
           },
           {
             "name": "google.golang.org/grpc/security/advancedtls",
@@ -1507,7 +1512,7 @@
           {
             "name": "google.golang.org/protobuf",
             "purl": "",
-            "version": "v1.36.11"
+            "version": "v1.36.12"
           },
           {
             "name": "gopkg.in/inf.v0",
@@ -1541,20 +1546,20 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 39,
-        "go": 249,
+        "go": 250,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 288
+        "total": 289
       }
     },
     "pkg-amd64": {
       "app_version": "4.12_7",
       "arch": "amd64",
-      "generated": "2026-08-28T08:20:03Z",
+      "generated": "2026-09-01T06:36:09Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1696,7 +1701,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-openssl-lib",
-            "version": "15.1"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -1724,7 +1729,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p2"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -1787,7 +1792,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.126.1"
+            "version": "3.127"
           },
           {
             "licenses": [
@@ -3955,7 +3960,7 @@
     "pkg-latest-amd64": {
       "app_version": "4.41_2",
       "arch": "amd64",
-      "generated": "2026-08-28T08:18:18Z",
+      "generated": "2026-09-01T06:36:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -4097,7 +4102,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-openssl-lib",
-            "version": "15.1"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -4125,7 +4130,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p2"
+            "version": "15.1p3"
           },
           {
             "licenses": [
@@ -4188,7 +4193,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.126.1"
+            "version": "3.127"
           },
           {
             "licenses": [
