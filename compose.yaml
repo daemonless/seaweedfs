@@ -20,7 +20,9 @@ x-daemonless:
       TZ: "Timezone for the container"
       SEAWEEDFS_MODE: "SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3"
       SEAWEEDFS_VOLUME_SIZE_LIMIT_MB: "Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB)"
-      WEED_ARGS: "Extra arguments appended to the weed command (optional)"
+      WEED_ARGS:
+        desc: "Extra arguments appended to the weed command"
+        optional: true
       S3_BUCKET: "Comma-separated S3 buckets to pre-create on startup (read natively by weed)"
     volumes:
       /config: "TOML config files (filer.toml, security.toml) + s3.json identities"

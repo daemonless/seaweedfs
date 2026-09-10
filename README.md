@@ -42,7 +42,7 @@ services:
       - TZ=UTC  # Timezone for the container
       - SEAWEEDFS_MODE=server  # SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3
       - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=  # Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB)
-      - WEED_ARGS=  # Extra arguments appended to the weed command (optional)
+      - WEED_ARGS=  # Extra arguments appended to the weed command
       - S3_BUCKET=  # Comma-separated S3 buckets to pre-create on startup (read natively by weed)
     volumes:
       - "/path/to/containers/seaweedfs:/config"
@@ -85,7 +85,7 @@ services:
   seaweedfs:
     name: seaweedfs
     options:
-      - container: 'boot args:--pull'
+      - container: 'args:--pull'
       - expose: '8333:8333 proto:tcp'
       - expose: '9333:9333 proto:tcp'
       - expose: '8888:8888 proto:tcp'
@@ -116,13 +116,18 @@ volumes:
 
 ARG tag=latest
 
+OPTION container=boot
 OPTION overwrite=force
 OPTION from=ghcr.io/daemonless/seaweedfs:${tag}
 ```
 
 Save the files above, then run `appjail-director up`.
 
-**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
 ### Podman CLI
 
@@ -147,6 +152,7 @@ Save as `run.sh`, then run `sh run.sh`.
 
 ### AppJail
 
+
 ```bash
 appjail oci run -Pd \
   -o overwrite=force \
@@ -168,21 +174,26 @@ appjail oci run -Pd \
   ghcr.io/daemonless/seaweedfs:latest seaweedfs
 ```
 
-Save as `run.sh`, then run `sh run.sh`.
+Save the files above, then run `sh run.sh`.
 
-**Note**: Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the IPv4 address assigned by the virtual network.
+
+> [!WARNING]
+> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
+>
+> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
 
 ### Bastille
 
 > [!WARNING]
-> Bastille's OCI support is **experimental**. It requires `buildah`, shares the host network stack (`inherit`), and persists image-declared volumes under `--data-path`.
+> Bastille's OCI support is **experimental**. It requires `buildah` and shares the host network stack (`inherit`). Mount volumes with `--volume HOST JAIL`; without it, image-declared volumes are stored under `${bastille_volumesdir}/${jail}`.
 
 ```yaml
 services:
   seaweedfs:
+    name: seaweedfs
     image: "ghcr.io/daemonless/seaweedfs:latest"
-    container_name: seaweedfs
-    network_mode: host  # jail shares host networking
+    network:
+      - mode: host
     environment:
       - PUID=1000
       - PGID=1000
@@ -191,9 +202,12 @@ services:
       - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=
       - WEED_ARGS=
       - S3_BUCKET=
+    volumes:
+      - "/path/to/containers/seaweedfs:/config"
+      - "/path/to/containers/seaweedfs/data:/data"
 ```
 
-Save as `podman-compose.yml`, then run `bastille up`. Or via CLI:
+Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
 
 ```bash
 bastille create -O \
@@ -204,7 +218,8 @@ bastille create -O \
   --env SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
   --env WEED_ARGS= \
   --env S3_BUCKET= \
-  --data-path /path/to/containers/seaweedfs \
+  --volume /path/to/containers/seaweedfs /config \
+  --volume /path/to/containers/seaweedfs/data /data \
   seaweedfs ghcr.io/daemonless/seaweedfs:latest inherit
 ```
 
@@ -249,7 +264,7 @@ Access at: `http://localhost:8333`
 | `TZ` | `UTC` | Timezone for the container |
 | `SEAWEEDFS_MODE` | `server` | SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3 |
 | `SEAWEEDFS_VOLUME_SIZE_LIMIT_MB` | `` | Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB) |
-| `WEED_ARGS` | `` | Extra arguments appended to the weed command (optional) |
+| `WEED_ARGS` | `` | Extra arguments appended to the weed command |
 | `S3_BUCKET` | `` | Comma-separated S3 buckets to pre-create on startup (read natively by weed) |
 
 ### Volumes
