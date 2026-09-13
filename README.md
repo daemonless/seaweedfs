@@ -7,6 +7,7 @@ Source: dbuild templates
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/daemonless/seaweedfs/build.yaml?style=flat-square&label=Build&color=green)](https://github.com/daemonless/seaweedfs/actions)
 [![Last Commit](https://img.shields.io/github/last-commit/daemonless/seaweedfs?style=flat-square&label=Last+Commit&color=blue)](https://github.com/daemonless/seaweedfs/commits)
+[![OCI Pulls](https://img.shields.io/docker/pulls/daemonless/seaweedfs?style=flat-square&label=OCI+Pulls&color=blue)](https://hub.docker.com/r/daemonless/seaweedfs)
 
 SeaweedFS is a fast distributed storage system for blobs, objects, files, and a data lake, scaling to billions of files. It provides an S3 API, POSIX FUSE mount, WebDAV, and a Filer with cross-cluster active-active replication.
 
