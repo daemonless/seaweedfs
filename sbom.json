@@ -1,11 +1,11 @@
 {
-  "generated": "2026-09-13T21:21:37Z",
+  "generated": "2026-09-14T07:40:03Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
-      "app_version": "4.46",
+      "app_version": "4.47",
       "arch": "amd64",
-      "generated": "2026-09-13T21:19:04Z",
+      "generated": "2026-09-14T07:38:22Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1167,12 +1167,12 @@
           {
             "name": "github.com/seaweedfs/raft",
             "purl": "",
-            "version": "v1.2.0"
+            "version": "v1.2.1"
           },
           {
             "name": "github.com/seaweedfs/seaweedfs",
             "purl": "",
-            "version": "v0.0.0-20260908034521-d997fba15755"
+            "version": "v0.0.0-20260914013155-c5073360007d"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -1452,7 +1452,7 @@
           {
             "name": "golang.org/x/crypto",
             "purl": "",
-            "version": "v0.55.0"
+            "version": "v0.56.0"
           },
           {
             "name": "golang.org/x/exp",
@@ -1579,7 +1579,7 @@
     "pkg-amd64": {
       "app_version": "4.12_7",
       "arch": "amd64",
-      "generated": "2026-09-13T21:21:01Z",
+      "generated": "2026-09-14T07:39:36Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3980,7 +3980,7 @@
     "pkg-latest-amd64": {
       "app_version": "4.45",
       "arch": "amd64",
-      "generated": "2026-09-13T21:18:42Z",
+      "generated": "2026-09-14T07:37:07Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
