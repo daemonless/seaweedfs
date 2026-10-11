@@ -46,8 +46,8 @@ services:
       - WEED_ARGS=  # Extra arguments appended to the weed command
       - S3_BUCKET=  # Comma-separated S3 buckets to pre-create on startup (read natively by weed)
     volumes:
-      - "/path/to/containers/seaweedfs:/config"
-      - "/path/to/containers/seaweedfs/data:/data"
+      - "/containers/seaweedfs:/config"
+      - "/containers/seaweedfs/data:/data"
     ports:
       - "8333:8333"
       - "9333:9333"
@@ -105,9 +105,9 @@ services:
       - seaweedfs_data: /data
 volumes:
   seaweedfs:
-    device: '/path/to/containers/seaweedfs'
+    device: '/containers/seaweedfs'
   seaweedfs_data:
-    device: '/path/to/containers/seaweedfs/data'
+    device: '/containers/seaweedfs/data'
 ```
 
 **Makejail**:
@@ -123,59 +123,6 @@ OPTION from=ghcr.io/daemonless/seaweedfs:${tag}
 ```
 
 Save the files above, then run `appjail-director up`.
-
-
-> [!WARNING]
-> Exposing ports in AppJail means that your service can be reached from remote hosts. If that is not your intention, do not expose the ports and communicate with the service using the jail's IPv4 address or hostname assigned by the virtual network.
->
-> To avoid exposing ports, just remove the `expose` option in your `appjail-director.yml` or from your command-line arguments.
-
-### Podman CLI
-
-```bash
-podman run -d --name seaweedfs \
-  -p 8333:8333 \
-  -p 9333:9333 \
-  -p 8888:8888 \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -e SEAWEEDFS_MODE=server \
-  -e SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
-  -e WEED_ARGS= \
-  -e S3_BUCKET= \
-  -v /path/to/containers/seaweedfs:/config \
-  -v /path/to/containers/seaweedfs/data:/data \
-  ghcr.io/daemonless/seaweedfs:latest
-```
-
-Save as `run.sh`, then run `sh run.sh`.
-
-### AppJail
-
-
-```bash
-appjail oci run -Pd \
-  -o overwrite=force \
-  -o container="args:--pull" \
-  -o virtualnet=":<random> default" \
-  -o nat \
-  -o expose="8333:8333 proto:tcp" \
-  -o expose="9333:9333 proto:tcp" \
-  -o expose="8888:8888 proto:tcp" \
-  -e PUID=1000 \
-  -e PGID=1000 \
-  -e TZ=UTC \
-  -e SEAWEEDFS_MODE=server \
-  -e SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
-  -e WEED_ARGS= \
-  -e S3_BUCKET= \
-  -o fstab="/path/to/containers/seaweedfs /config <pseudofs>" \
-  -o fstab="/path/to/containers/seaweedfs/data /data <pseudofs>" \
-  ghcr.io/daemonless/seaweedfs:latest seaweedfs
-```
-
-Save the files above, then run `sh run.sh`.
 
 
 > [!WARNING]
@@ -204,53 +151,11 @@ services:
       - WEED_ARGS=
       - S3_BUCKET=
     volumes:
-      - "/path/to/containers/seaweedfs:/config"
-      - "/path/to/containers/seaweedfs/data:/data"
+      - "/containers/seaweedfs:/config"
+      - "/containers/seaweedfs/data:/data"
 ```
 
-Save as `bastille-compose.yml`, then run `bastille up`. Or via CLI:
-
-```bash
-bastille create -O \
-  --env PUID=1000 \
-  --env PGID=1000 \
-  --env TZ=UTC \
-  --env SEAWEEDFS_MODE=server \
-  --env SEAWEEDFS_VOLUME_SIZE_LIMIT_MB= \
-  --env WEED_ARGS= \
-  --env S3_BUCKET= \
-  --volume /path/to/containers/seaweedfs /config \
-  --volume /path/to/containers/seaweedfs/data /data \
-  seaweedfs ghcr.io/daemonless/seaweedfs:latest inherit
-```
-
-### Ansible
-
-```yaml
-- name: Deploy seaweedfs
-  containers.podman.podman_container:
-    name: seaweedfs
-    image: "ghcr.io/daemonless/seaweedfs:latest"
-    state: started
-    restart_policy: always
-    env:
-      PUID: "1000"
-      PGID: "1000"
-      TZ: "UTC"
-      SEAWEEDFS_MODE: "server"
-      SEAWEEDFS_VOLUME_SIZE_LIMIT_MB: ""
-      WEED_ARGS: ""
-      S3_BUCKET: ""
-    ports:
-      - "8333:8333"
-      - "9333:9333"
-      - "8888:8888"
-    volumes:
-      - "/path/to/containers/seaweedfs:/config"
-      - "/path/to/containers/seaweedfs/data:/data"
-```
-
-Save as `seaweedfs-deploy.yaml`, then run `ansible-playbook seaweedfs-deploy.yaml`.
+Save as `bastille-compose.yml`, then run `bastille up`.
 
 Access at: `http://localhost:8333`
 
