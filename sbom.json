@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-11T07:50:10Z",
+  "generated": "2026-10-11T22:57:31Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
       "app_version": "4.48",
       "arch": "amd64",
-      "generated": "2026-10-11T07:49:14Z",
+      "generated": "2026-10-11T22:53:05Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -280,7 +280,7 @@
               "BSD2CLAUSE"
             ],
             "name": "pkg",
-            "version": "2.7.5"
+            "version": "2.8.4"
           },
           {
             "licenses": [
@@ -1586,9 +1586,9 @@
       }
     },
     "pkg-amd64": {
-      "app_version": "4.45",
+      "app_version": "4.45_1",
       "arch": "amd64",
-      "generated": "2026-10-11T07:49:37Z",
+      "generated": "2026-10-11T22:52:26Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1877,7 +1877,7 @@
               "APACHE20"
             ],
             "name": "seaweedfs",
-            "version": "4.45"
+            "version": "4.45_1"
           },
           {
             "licenses": [
@@ -3791,7 +3791,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.8"
+            "version": "v1.26.9"
           },
           {
             "name": "storj.io/common",
@@ -3846,9 +3846,9 @@
       }
     },
     "pkg-latest-amd64": {
-      "app_version": "4.45",
+      "app_version": "4.45_1",
       "arch": "amd64",
-      "generated": "2026-10-11T07:49:30Z",
+      "generated": "2026-10-11T22:52:09Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -4095,7 +4095,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.130"
+            "version": "3.131"
           },
           {
             "licenses": [
@@ -4137,7 +4137,7 @@
               "APACHE20"
             ],
             "name": "seaweedfs",
-            "version": "4.45"
+            "version": "4.45_1"
           },
           {
             "licenses": [
@@ -6051,7 +6051,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.8"
+            "version": "v1.27.2"
           },
           {
             "name": "storj.io/common",
