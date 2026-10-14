@@ -42,9 +42,9 @@ services:
       - PGID=1000  # Group ID for the application process
       - TZ=UTC  # Timezone for the container
       - SEAWEEDFS_MODE=server  # SeaweedFS role: server (default, all-in-one S3+filer+volume), mini (turnkey + Admin UI), master, volume, filer, or s3
-      - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=  # Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB)
-      - WEED_ARGS=  # Extra arguments appended to the weed command
-      - S3_BUCKET=  # Comma-separated S3 buckets to pre-create on startup (read natively by weed)
+      # - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=  # Per-volume file rollover size in MB, not a total quota (server/master only; default 30000 ≈ 30GB)
+      # - WEED_ARGS=  # Extra arguments appended to the weed command
+      # - S3_BUCKET=  # Comma-separated S3 buckets to pre-create on startup (read natively by weed)
     volumes:
       - "/containers/seaweedfs:/config"
       - "/containers/seaweedfs/data:/data"
@@ -69,9 +69,6 @@ PUID=1000
 PGID=1000
 TZ=UTC
 SEAWEEDFS_MODE=server
-SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=
-WEED_ARGS=
-S3_BUCKET=
 ```
 
 **appjail-director.yml**:
@@ -97,9 +94,6 @@ services:
         - PGID: !ENV '${PGID}'
         - TZ: !ENV '${TZ}'
         - SEAWEEDFS_MODE: !ENV '${SEAWEEDFS_MODE}'
-        - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB: !ENV '${SEAWEEDFS_VOLUME_SIZE_LIMIT_MB}'
-        - WEED_ARGS: !ENV '${WEED_ARGS}'
-        - S3_BUCKET: !ENV '${S3_BUCKET}'
     volumes:
       - seaweedfs: /config
       - seaweedfs_data: /data
@@ -147,9 +141,6 @@ services:
       - PGID=1000
       - TZ=UTC
       - SEAWEEDFS_MODE=server
-      - SEAWEEDFS_VOLUME_SIZE_LIMIT_MB=
-      - WEED_ARGS=
-      - S3_BUCKET=
     volumes:
       - "/containers/seaweedfs:/config"
       - "/containers/seaweedfs/data:/data"
