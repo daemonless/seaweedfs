@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-14T18:24:34Z",
+  "generated": "2026-10-16T21:28:00Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
       "app_version": "4.48",
       "arch": "amd64",
-      "generated": "2026-10-14T18:19:29Z",
+      "generated": "2026-10-16T21:26:57Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1588,7 +1588,7 @@
     "pkg-amd64": {
       "app_version": "4.45_1",
       "arch": "amd64",
-      "generated": "2026-10-14T18:23:53Z",
+      "generated": "2026-10-16T21:26:49Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -3848,7 +3848,7 @@
     "pkg-latest-amd64": {
       "app_version": "4.45_1",
       "arch": "amd64",
-      "generated": "2026-10-14T18:17:03Z",
+      "generated": "2026-10-16T21:27:02Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
