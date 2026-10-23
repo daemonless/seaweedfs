@@ -1,5 +1,5 @@
 ARG BASE_VERSION=15.1
-FROM ghcr.io/daemonless/base:${BASE_VERSION}
+FROM ghcr.io/daemonless/base-exec:${BASE_VERSION}
 
 ARG FREEBSD_ARCH=amd64
 ARG PKG_NAME="seaweedfs"
@@ -33,8 +33,11 @@ RUN pkg update && \
 
 # Copy root filesystem
 COPY root/ /
+RUN chmod +x /daemonless/libexec/seaweedfs /daemonless/init.d/*
 
-RUN chmod +x /etc/services.d/seaweedfs/run /etc/cont-init.d/20-seaweedfs /healthz
+CMD ["/daemonless/libexec/seaweedfs"]
+
+RUN chmod +x /healthz
 
 EXPOSE 8333 9333 8888 8080
 VOLUME ["/config", "/data"]

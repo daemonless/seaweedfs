@@ -1,5 +1,5 @@
 #!/bin/sh
-# SeaweedFS s6 service.
+# Start seaweedfs; /init has already dropped to the run user.
 # Role via SEAWEEDFS_MODE (default: server). Mirrors upstream role defaults.
 # TOML config + s3.json live in /config (-config_dir); bulk data in /data (-dir).
 
@@ -30,7 +30,6 @@ case "$MODE" in
   filer)              READY="nc -z 127.0.0.1 8888" ;;
   s3)                 READY="nc -z 127.0.0.1 8333" ;;
 esac
-s6-ready-when "${READY}"
 
 echo "[seaweedfs] mode=${MODE}: $* ${WEED_ARGS}"
-exec s6-setuidgid bsd "$@" ${WEED_ARGS}
+exec "$@" ${WEED_ARGS}
