@@ -8,12 +8,12 @@ build:
   variants:
     - tag: latest
       containerfile: Containerfile
+    # pkg-latest is an alias of pkg until the 15 latest repo has seaweedfs
+    # again: seaweedfs-4.45_2 failed its distfile fetch in the 2026-10-23
+    # package run, and a failed variant blocks the manifests for the others.
     - tag: pkg
       containerfile: Containerfile.pkg
-    - tag: pkg-latest
-      containerfile: Containerfile.pkg
-      args:
-        BASE_VERSION: "15.1-latest"
+      aliases: ["pkg-latest"]
 
 cit:
   mode: health

@@ -22,8 +22,7 @@ SeaweedFS is a fast distributed storage system for blobs, objects, files, and a 
 | Tag | Description | Best For |
 | :--- | :--- | :--- |
 | `latest` | **Upstream Binary**. Built from official release. | Alternative build. |
-| `pkg` | **FreeBSD Quarterly**. Uses stable, tested packages. | Production stability. |
-| `pkg-latest` | **FreeBSD Latest**. Rolling package updates. | Staying current. |
+| `pkg` / `pkg-latest` | **FreeBSD Quarterly**. Uses stable, tested packages. | Production stability. |
 
 ## Prerequisites
 Before deploying, ensure your host environment is ready. See the [Quick Start Guide](https://daemonless.io/guides/quick-start) for host setup instructions.
@@ -147,8 +146,7 @@ services:
 ```
 
 Save as `bastille-compose.yml`, then run `bastille up`.
-
-Access at: `http://localhost:8333`
+Open `http://<server>:8333` from another machine (the server's own browser can't use a published port).
 
 ## Parameters
 
