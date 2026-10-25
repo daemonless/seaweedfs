@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-25T10:01:30Z",
+  "generated": "2026-10-25T21:34:09Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
-      "app_version": "4.50",
+      "app_version": "4.51",
       "arch": "amd64",
-      "generated": "2026-10-25T10:00:39Z",
+      "generated": "2026-10-25T21:33:24Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1120,7 +1120,7 @@
           {
             "name": "github.com/seaweedfs/seaweedfs",
             "purl": "",
-            "version": "v0.0.0-20261025030942-ec8f9793502c"
+            "version": "v0.0.0-20261025193907-153ab668c997"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -1522,7 +1522,7 @@
     "pkg-amd64": {
       "app_version": "4.45_2",
       "arch": "amd64",
-      "generated": "2026-10-25T10:00:57Z",
+      "generated": "2026-10-25T21:33:37Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
