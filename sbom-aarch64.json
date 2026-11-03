@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-03T00:32:41Z",
+  "generated": "2026-11-03T09:56:36Z",
   "image": "seaweedfs",
   "tags": {
     "latest-aarch64": {
       "app_version": "4.52",
       "arch": "aarch64",
-      "generated": "2026-11-03T00:31:15Z",
+      "generated": "2026-11-03T09:54:38Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1525,9 +1525,9 @@
       }
     },
     "pkg-aarch64": {
-      "app_version": "4.45_1",
+      "app_version": "4.45_2",
       "arch": "aarch64",
-      "generated": "2026-11-03T00:31:20Z",
+      "generated": "2026-11-03T09:54:42Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1802,7 +1802,7 @@
               "APACHE20"
             ],
             "name": "seaweedfs",
-            "version": "4.45_1"
+            "version": "4.45_2"
           }
         ],
         "go": [
@@ -3709,7 +3709,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.26.9"
+            "version": "v1.26.10"
           },
           {
             "name": "storj.io/common",
