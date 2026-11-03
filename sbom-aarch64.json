@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-25T22:31:24Z",
+  "generated": "2026-11-03T00:32:41Z",
   "image": "seaweedfs",
   "tags": {
     "latest-aarch64": {
-      "app_version": "4.51",
+      "app_version": "4.52",
       "arch": "aarch64",
-      "generated": "2026-10-25T22:30:22Z",
+      "generated": "2026-11-03T00:31:15Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -189,7 +189,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
@@ -300,7 +300,7 @@
           {
             "name": "cloud.google.com/go/compute/metadata",
             "purl": "",
-            "version": "v0.9.0"
+            "version": "v0.10.0"
           },
           {
             "name": "cloud.google.com/go/iam",
@@ -345,7 +345,7 @@
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
             "purl": "",
-            "version": "v1.23.2"
+            "version": "v1.23.3"
           },
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/azidentity",
@@ -355,7 +355,7 @@
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/internal",
             "purl": "",
-            "version": "v1.12.0"
+            "version": "v1.13.0"
           },
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob",
@@ -380,7 +380,7 @@
           {
             "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp",
             "purl": "",
-            "version": "v1.37.0"
+            "version": "v1.38.0"
           },
           {
             "name": "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric",
@@ -410,17 +410,17 @@
           {
             "name": "github.com/ThreeDotsLabs/watermill",
             "purl": "",
-            "version": "v1.5.2"
+            "version": "v1.5.3"
           },
           {
             "name": "github.com/a-h/templ",
             "purl": "",
-            "version": "v0.3.1070"
+            "version": "v0.3.1100"
           },
           {
             "name": "github.com/andybalholm/brotli",
             "purl": "",
-            "version": "v1.2.6"
+            "version": "v1.2.7"
           },
           {
             "name": "github.com/antlr4-go/antlr/v4",
@@ -466,6 +466,11 @@
             "name": "github.com/aws/aws-sdk-go",
             "purl": "",
             "version": "v1.55.8"
+          },
+          {
+            "name": "github.com/aws/aws-sdk-go-v2",
+            "purl": "",
+            "version": "v1.47.3"
           },
           {
             "name": "github.com/beorn7/perks",
@@ -565,7 +570,7 @@
           {
             "name": "github.com/envoyproxy/go-control-plane/envoy",
             "purl": "",
-            "version": "v1.39.1-0.20260819172001-e6e3fd93e4be"
+            "version": "v1.40.1-0.20261014170222-9c4befd3c419"
           },
           {
             "name": "github.com/envoyproxy/protoc-gen-validate",
@@ -610,7 +615,7 @@
           {
             "name": "github.com/getsentry/sentry-go",
             "purl": "",
-            "version": "v0.49.0"
+            "version": "v0.50.0"
           },
           {
             "name": "github.com/go-asn1-ber/asn1-ber",
@@ -620,7 +625,7 @@
           {
             "name": "github.com/go-jose/go-jose/v4",
             "purl": "",
-            "version": "v4.1.5"
+            "version": "v4.1.6"
           },
           {
             "name": "github.com/go-ldap/ldap/v3",
@@ -1030,7 +1035,7 @@
           {
             "name": "github.com/pkg/sftp",
             "purl": "",
-            "version": "v1.13.11"
+            "version": "v1.13.12"
           },
           {
             "name": "github.com/planetscale/vtprotobuf",
@@ -1080,7 +1085,7 @@
           {
             "name": "github.com/redis/go-redis/v9",
             "purl": "",
-            "version": "v9.22.0"
+            "version": "v9.23.0"
           },
           {
             "name": "github.com/rivo/uniseg",
@@ -1115,12 +1120,12 @@
           {
             "name": "github.com/seaweedfs/raft",
             "purl": "",
-            "version": "v1.2.2"
+            "version": "v1.2.3"
           },
           {
             "name": "github.com/seaweedfs/seaweedfs",
             "purl": "",
-            "version": "v0.0.0-20261025193907-153ab668c997"
+            "version": "v0.0.0-20261102112406-984eac6a790b"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
@@ -1165,7 +1170,7 @@
           {
             "name": "github.com/spiffe/go-spiffe/v2",
             "purl": "",
-            "version": "v2.8.1"
+            "version": "v2.8.2"
           },
           {
             "name": "github.com/stretchr/objx",
@@ -1455,17 +1460,17 @@
           {
             "name": "google.golang.org/genproto/googleapis/api",
             "purl": "",
-            "version": "v0.0.0-20260904194346-d0f1323225a4"
+            "version": "v0.0.0-20260921155816-b14227669459"
           },
           {
             "name": "google.golang.org/genproto/googleapis/rpc",
             "purl": "",
-            "version": "v0.0.0-20260904194346-d0f1323225a4"
+            "version": "v0.0.0-20260921155816-b14227669459"
           },
           {
             "name": "google.golang.org/grpc",
             "purl": "",
-            "version": "v1.85.0-dev.0.20260915183914-4e49413dcab7"
+            "version": "v1.86.0-dev.0.20261027044109-d619b5d02089"
           },
           {
             "name": "google.golang.org/grpc/security/advancedtls",
@@ -1509,20 +1514,20 @@
       "summary": {
         "dotnet": 0,
         "freebsd": 38,
-        "go": 244,
+        "go": 245,
         "java": 0,
         "node": 0,
         "php": 0,
         "python": 0,
         "ruby": 0,
         "rust": 0,
-        "total": 282
+        "total": 283
       }
     },
     "pkg-aarch64": {
       "app_version": "4.45_1",
       "arch": "aarch64",
-      "generated": "2026-10-25T22:30:25Z",
+      "generated": "2026-11-03T00:31:20Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1706,7 +1711,7 @@
               "BSD2CLAUSE"
             ],
             "name": "FreeBSD-runtime",
-            "version": "15.1p5"
+            "version": "15.1p6"
           },
           {
             "licenses": [
