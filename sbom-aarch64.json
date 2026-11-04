@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-03T09:56:36Z",
+  "generated": "2026-11-04T14:25:35Z",
   "image": "seaweedfs",
   "tags": {
     "latest-aarch64": {
       "app_version": "4.52",
       "arch": "aarch64",
-      "generated": "2026-11-03T09:54:38Z",
+      "generated": "2026-11-04T14:24:05Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -252,7 +252,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
@@ -1527,7 +1527,7 @@
     "pkg-aarch64": {
       "app_version": "4.45_2",
       "arch": "aarch64",
-      "generated": "2026-11-03T09:54:42Z",
+      "generated": "2026-11-04T14:24:10Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -1774,7 +1774,7 @@
               "MPL20"
             ],
             "name": "ca_root_nss",
-            "version": "3.131"
+            "version": "3.132"
           },
           {
             "licenses": [
