@@ -1,11 +1,11 @@
 {
-  "generated": "2026-11-15T09:10:55Z",
+  "generated": "2026-11-16T10:57:47Z",
   "image": "seaweedfs",
   "tags": {
     "latest-amd64": {
-      "app_version": "4.53",
+      "app_version": "4.54",
       "arch": "amd64",
-      "generated": "2026-11-15T09:10:11Z",
+      "generated": "2026-11-16T10:57:08Z",
       "packages": {
         "dotnet": [],
         "freebsd": [
@@ -345,7 +345,7 @@
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/azcore",
             "purl": "",
-            "version": "v1.23.3"
+            "version": "v1.24.0"
           },
           {
             "name": "github.com/Azure/azure-sdk-for-go/sdk/azidentity",
@@ -465,7 +465,7 @@
           {
             "name": "github.com/aws/aws-sdk-go-v2",
             "purl": "",
-            "version": "v1.47.5"
+            "version": "v1.47.7"
           },
           {
             "name": "github.com/beorn7/perks",
@@ -1065,7 +1065,7 @@
           {
             "name": "github.com/prometheus/procfs",
             "purl": "",
-            "version": "v0.22.0"
+            "version": "v0.23.0"
           },
           {
             "name": "github.com/rcrowley/go-metrics",
@@ -1120,12 +1120,12 @@
           {
             "name": "github.com/seaweedfs/seaweedfs",
             "purl": "",
-            "version": "v0.0.0-20261108181033-4ab66fb76da8"
+            "version": "v0.0.0-20261116053142-5ef99c1d8dbb"
           },
           {
             "name": "github.com/shirou/gopsutil/v4",
             "purl": "",
-            "version": "v4.26.7"
+            "version": "v4.26.10"
           },
           {
             "name": "github.com/sirupsen/logrus",
@@ -1395,7 +1395,7 @@
           {
             "name": "go.yaml.in/yaml/v3",
             "purl": "",
-            "version": "v3.0.5"
+            "version": "v3.0.6"
           },
           {
             "name": "golang.org/x/crypto",
@@ -1415,7 +1415,7 @@
           {
             "name": "golang.org/x/net",
             "purl": "",
-            "version": "v0.61.0"
+            "version": "v0.62.0"
           },
           {
             "name": "golang.org/x/oauth2",
@@ -1500,7 +1500,7 @@
           {
             "name": "stdlib",
             "purl": "",
-            "version": "v1.27.3"
+            "version": "v1.27.4"
           }
         ],
         "java": [],
